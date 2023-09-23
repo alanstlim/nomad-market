@@ -2,42 +2,67 @@ import styled from "styled-components";
 
 export const Content = styled.div`
   display: flex;
-  height: 100%;
   width: 15rem;
-  padding: 0 1rem;
   flex-direction: column;
-  background-color: ${({ theme }) => theme.colors.backgroundLight};
+  gap: 0.125rem;
 `;
 
 export const Header = styled.div`
   display: flex;
-  height: 5rem;
+  flex: 1;
   justify-content: center;
   align-items: center;
+  background-color: ${({ theme }) => theme.colors.backgroundLight};
 `;
 
 export const Logo = styled.img`
-  height: 5rem;
+  height: 75px;
   mix-blend-mode: multiply;
 `;
 
 export const Menu = styled.div`
-  height: 100%;
-  width: 100%;
   display: flex;
+  flex: 9;
   flex-direction: column;
+  padding: 0 10px;
+  gap: 0.25rem;
+  background-color: ${({ theme }) => theme.colors.backgroundLight};
+
+  :first-child {
+    margin-top: 0.5rem;
+  }
 `;
 
-export const Item = styled.button`
+export const ItemButton = styled.button`
+  display: flex;
+  height: 50px;
+  width: 100%;
+  border: none;
+  background-color: ${({ theme }) => theme.colors.backgroundLight};
+  cursor: pointer;
+
+  :first-child {
+    margin-left: 1rem;
+  }
+
+  :hover {
+    background-color: ${({ theme }) => theme.colors.primary};
+  }
+`;
+
+export const ItemContainer = styled.div`
   display: flex;
   align-items: center;
-  margin: 0.25rem;
-  padding: 0.75rem 1rem;
   border-radius: 0.75rem;
+  flex: 1;
+
+  svg {
+    margin-bottom: 0.75rem;
+  }
 `;
 
 export const ItemTitle = styled.span`
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   margin-left: 0.5rem;
 `;

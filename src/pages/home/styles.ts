@@ -4,7 +4,7 @@ export const Content = styled.div`
   display: flex;
   width: 100%;
   background-color: ${({ theme }) => theme.colors.backgroundDark};
-  padding: 1.5rem;
+  padding: 1rem;
   flex-direction: column;
 `;
 

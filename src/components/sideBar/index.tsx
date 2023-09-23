@@ -11,14 +11,20 @@ const SideBar: React.FC = () => {
         />
       </St.Header>
       <St.Menu>
-        <St.Item>
-          <MdViewModule size={32} />
-          <St.ItemTitle>Catalogue</St.ItemTitle>
-        </St.Item>
-        <St.Item>
-          <MdAttachMoney size={32} />
-          <St.ItemTitle>Reduce Area</St.ItemTitle>
-        </St.Item>
+        <div>
+          <St.ItemButton>
+            <St.ItemContainer>
+              <MdViewModule size={32} />
+              <St.ItemTitle>Catalogue</St.ItemTitle>
+            </St.ItemContainer>
+          </St.ItemButton>
+          <St.ItemButton>
+            <St.ItemContainer>
+              <MdAttachMoney size={32} />
+              <St.ItemTitle>Reduce Area</St.ItemTitle>
+            </St.ItemContainer>
+          </St.ItemButton>
+        </div>
       </St.Menu>
     </St.Content>
   );

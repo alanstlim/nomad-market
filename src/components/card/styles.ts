@@ -10,6 +10,8 @@ export const Content = styled.div`
   justify-content: space-around;
   align-items: center;
   background-color: white;
+  cursor: pointer;
+  box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
 `;
 
 export const Image = styled.img`

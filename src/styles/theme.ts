@@ -4,6 +4,7 @@ const THEMES = {
     secondary: "#554791",
     backgroundLight: "#FFF",
     backgroundDark: "#F7F8FA",
+    shadow: "rgb(0, 0, 0, 0.1)",
   },
 };
 

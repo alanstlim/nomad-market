@@ -8,9 +8,7 @@ import * as St from "./styles";
 const Template: React.FC = () => {
   return (
     <St.MainContent>
-      <div>
-        <SideBar />
-      </div>
+      <SideBar />
       <St.Content>
         <SearchBar />
         <Container>
