@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export const Content = styled.div`
   display: flex;
-  width: 15rem;
   flex-direction: column;
   gap: 0.125rem;
 `;
@@ -23,8 +22,8 @@ export const Logo = styled.img`
 export const Menu = styled.div`
   display: flex;
   flex: 9;
+  width: 15vw;
   flex-direction: column;
-  padding: 0 10px;
   gap: 0.25rem;
   background-color: ${({ theme }) => theme.colors.backgroundLight};
 
@@ -42,7 +41,7 @@ export const ItemButton = styled.button`
   cursor: pointer;
 
   :first-child {
-    margin-left: 1rem;
+    margin-left: 0.75rem;
   }
 
   :hover {

@@ -11,7 +11,8 @@ export const Content = styled.div`
 export const Title = styled.span`
   font-size: 2rem;
   font-weight: bold;
-  margin: 8px 0;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
 `;
 
 export const Catalog = styled.div`

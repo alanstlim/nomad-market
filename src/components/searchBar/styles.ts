@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Content = styled.div`
   display: flex;
   flex: 1;
-  width: 85vw;
+  width: 80vw;
   background-color: ${({ theme }) => theme.colors.backgroundDark};
 `;
 

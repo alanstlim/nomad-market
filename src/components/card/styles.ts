@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Content = styled.div`
   display: flex;
-  height: 225px;
-  width: 175px;
+  height: 250px;
+  width: 195px;
   padding: 8px;
   border-radius: 0.75rem;
   flex-direction: column;
