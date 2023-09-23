@@ -11,7 +11,7 @@ const Template: React.FC = () => {
       <div>
         <SideBar />
       </div>
-      <div>
+      <St.Content>
         <SearchBar />
         <Container>
           <Outlet />
@@ -19,7 +19,7 @@ const Template: React.FC = () => {
           so you can think about this <Outlet> as a placeholder for
           the child routes we defined above. */}
         </Container>
-      </div>
+      </St.Content>
     </St.MainContent>
   );
 };

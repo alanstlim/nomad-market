@@ -1,8 +1,13 @@
+import * as St from "./styles";
+
 const SideBar: React.FC = () => {
   return (
-    <div>
+    <St.Content>
+      <div>
+        <h2>Logo</h2>
+      </div>
       <h1>Side</h1>
-    </div>
+    </St.Content>
   );
 };
 

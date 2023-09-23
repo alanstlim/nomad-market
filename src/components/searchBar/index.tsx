@@ -1,8 +1,10 @@
+import * as St from "./styles";
+
 const SearchBar: React.FC = () => {
   return (
-    <div>
-      <h1>Search</h1>
-    </div>
+    <St.Content>
+      <h2>Search</h2>
+    </St.Content>
   );
 };
 
