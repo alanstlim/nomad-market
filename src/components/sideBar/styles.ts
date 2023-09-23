@@ -6,7 +6,7 @@ export const Content = styled.div`
   width: 15rem;
   padding: 0 1rem;
   flex-direction: column;
-  background-color: green;
+  background-color: ${({ theme }) => theme.colors.backgroundLight};
 `;
 
 export const Header = styled.div`
