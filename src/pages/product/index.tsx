@@ -3,6 +3,8 @@ import * as St from "./styles";
 import Input from "../../components/Input";
 import Button from "../../components/Button";
 import { Link } from "react-router-dom";
+import { yupResolver } from "@hookform/resolvers/yup";
+import { ValidationProduct } from "./validations";
 
 type FormData = {
   name: string;
@@ -11,8 +13,9 @@ type FormData = {
 };
 
 const Product: React.FC = () => {
-  const methods = useForm<FormData>();
-
+  const methods = useForm<FormData>({
+    resolver: yupResolver(ValidationProduct),
+  });
   const onSubmit = async (data: FormData) => {
     console.log(data);
   };
@@ -23,13 +26,24 @@ const Product: React.FC = () => {
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
           <St.FormContainer>
-            <Input name="name" placeholder="Name: Strawberry" label="Name" />
-            <Input name="price" placeholder="Price: $0,00" label="Price" />
+            <Input
+              name="name"
+              placeholder="Name: Strawberry"
+              label="Name"
+              error={methods.formState.errors.name}
+            />
+            <Input
+              name="price"
+              placeholder="Price: $0,00"
+              label="Price"
+              error={methods.formState.errors.price}
+            />
           </St.FormContainer>
           <Input
             name="description"
             placeholder="Description: The strawberry is good to ..."
             label="Description"
+            error={methods.formState.errors.description}
           />
           <St.RowContainer>
             <Link to="/management">

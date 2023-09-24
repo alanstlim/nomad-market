@@ -17,15 +17,17 @@ function Input({
   ...rest
 }: InputProps) {
   const { register } = useFormContext();
+
   return (
     <St.Container>
       {label && <St.Label>{label}</St.Label>}
       <St.Input
         {...register(name, { required })}
         placeholder={placeholder}
+        error={typeof error?.message === "string"}
         {...rest}
       />
-      {error?.message && <span>{error.message}</span>}
+      {error?.message && <St.Error>{error.message}</St.Error>}
     </St.Container>
   );
 }
