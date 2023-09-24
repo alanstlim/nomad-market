@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
+import THEMES from "../../styles/theme";
 import * as St from "./styles";
-import { MdViewModule, MdAttachMoney } from "react-icons/md";
+import { MdViewModule, MdManageAccounts } from "react-icons/md";
 
 const SideBar: React.FC = () => {
   return (
@@ -12,18 +14,22 @@ const SideBar: React.FC = () => {
       </St.Header>
       <St.Menu>
         <div>
-          <St.ItemButton>
-            <St.ItemContainer>
-              <MdViewModule size={32} />
-              <St.ItemTitle>Catalogue</St.ItemTitle>
-            </St.ItemContainer>
-          </St.ItemButton>
-          <St.ItemButton>
-            <St.ItemContainer>
-              <MdAttachMoney size={32} />
-              <St.ItemTitle>Reduce Area</St.ItemTitle>
-            </St.ItemContainer>
-          </St.ItemButton>
+          <Link to="/">
+            <St.ItemButton>
+              <St.ItemContainer>
+                <MdViewModule size={32} color={THEMES.colors.secondary} />
+                <St.ItemTitle>Catalogue</St.ItemTitle>
+              </St.ItemContainer>
+            </St.ItemButton>
+          </Link>
+          <Link to="/management">
+            <St.ItemButton>
+              <St.ItemContainer>
+                <MdManageAccounts size={32} color={THEMES.colors.secondary} />
+                <St.ItemTitle>Management</St.ItemTitle>
+              </St.ItemContainer>
+            </St.ItemButton>
+          </Link>
         </div>
       </St.Menu>
     </St.Content>

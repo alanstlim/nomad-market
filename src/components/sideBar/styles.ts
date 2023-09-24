@@ -64,4 +64,5 @@ export const ItemTitle = styled.span`
   font-size: 1rem;
   font-weight: 500;
   margin-left: 0.5rem;
+  color: ${({ theme }) => theme.colors.secondary};
 `;
