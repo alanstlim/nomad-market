@@ -2,15 +2,13 @@
   body {
     padding: 32px;
     font-family: 'Raleway', sans-serif;
-    background-color: #AEC741
+    background-color: #AEC741;
   };
 
   html {
     font-family: 'Raleway', sans-serif;
-  }
+  };
 
   button:focus {
     box-shadow: none !important;
   };
-  
- 

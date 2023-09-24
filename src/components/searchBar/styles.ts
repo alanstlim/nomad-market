@@ -16,7 +16,7 @@ export const InputContainer = styled.div`
 export const Input = styled.input`
   height: 35px;
   width: 25vw;
-  padding: 0 0.6rem;
   border: none;
+  padding: 0 0.5rem;
   background-color: ${({ theme }) => theme.colors.backgroundDark};
 `;

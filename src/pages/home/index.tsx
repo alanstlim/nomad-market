@@ -1,4 +1,4 @@
-import Card from "../../components/card";
+import Card from "../../components/Card";
 import * as St from "./styles";
 
 const Home: React.FC = () => {

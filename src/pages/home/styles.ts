@@ -13,6 +13,7 @@ export const Title = styled.span`
   font-weight: bold;
   margin-top: 1rem;
   margin-bottom: 1.5rem;
+  color: ${({ theme }) => theme.colors.secondary};
 `;
 
 export const Catalog = styled.div`
