@@ -1,7 +1,7 @@
-import THEMES from "../../styles/theme";
-import * as St from "./styles";
+import THEMES from 'styles/theme';
+import * as St from './styles';
 
-import { MdSearch } from "react-icons/md";
+import { MdSearch } from 'react-icons/md';
 
 const SearchBar: React.FC = () => {
   return (

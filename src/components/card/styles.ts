@@ -42,7 +42,7 @@ export const Price = styled.span`
   font-weight: bold;
 `;
 
-export const ButtonAdd = styled.button`
+export const Button = styled.button`
   display: flex;
   border-radius: 100%;
   width: 28px;

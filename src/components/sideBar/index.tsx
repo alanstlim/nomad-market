@@ -1,11 +1,11 @@
-import { Link } from "react-router-dom";
-import THEMES from "../../styles/theme";
-import * as St from "./styles";
+import { Link } from 'react-router-dom';
+import THEMES from 'styles/theme';
+import * as St from './styles';
 import {
   MdViewModule,
   MdManageAccounts,
   MdShoppingBasket,
-} from "react-icons/md";
+} from 'react-icons/md';
 
 const SideBar: React.FC = () => {
   return (

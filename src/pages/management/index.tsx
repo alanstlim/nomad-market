@@ -1,8 +1,8 @@
-import { MdDelete, MdModeEdit } from "react-icons/md";
-import Button from "../../components/Button";
-import * as St from "./styles";
-import THEMES from "../../styles/theme";
-import { Link } from "react-router-dom";
+import { MdDelete, MdModeEdit } from 'react-icons/md';
+import Button from 'components/Button';
+import THEMES from 'styles/theme';
+import * as St from './styles';
+import { Link } from 'react-router-dom';
 
 const Management: React.FC = () => {
   return (

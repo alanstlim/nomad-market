@@ -1,12 +1,14 @@
-import { Outlet } from "react-router-dom";
-import SideBar from "../components/SideBar";
-import Container from "../components/Container";
+import { Outlet } from 'react-router-dom';
+import SideBar from 'components/SideBar';
+import Modal from 'components/Modal';
+import Container from 'components/Container';
 
-import * as St from "./styles";
+import * as St from './styles';
 
 const Template: React.FC = () => {
   return (
     <St.MainContent>
+      <Modal />
       <SideBar />
       <St.Content>
         <Container>
