@@ -1,11 +1,11 @@
-import * as St from "./style";
+import * as St from './style';
 
-import { MdAdd, MdImageNotSupported, MdModeEdit } from "react-icons/md";
+import { MdAdd, MdImageNotSupported, MdModeEdit } from 'react-icons/md';
 
-import React, { useMemo } from "react";
-import THEMES from "../../styles/theme";
-import { FieldError, useFormContext } from "react-hook-form";
-import { convertBase64 } from "../../utils/base64";
+import React, { useMemo } from 'react';
+import THEMES from 'styles/theme';
+import { FieldError, useFormContext } from 'react-hook-form';
+import { convertBase64 } from 'utils/base64';
 
 type ImageInputProps = {
   name: string;
@@ -21,7 +21,7 @@ const ImageInput: React.FC<ImageInputProps> = ({
 }) => {
   const { register, setValue, setError, clearErrors, watch } = useFormContext();
   const hiddenFileInput = React.useRef({} as HTMLInputElement);
-  const acceptTypes = "image/png, image/jpeg, image/jpg";
+  const acceptTypes = 'image/png, image/jpeg, image/jpg';
   const value = watch(name);
 
   const hasImage = useMemo(() => {
@@ -35,7 +35,7 @@ const ImageInput: React.FC<ImageInputProps> = ({
   };
 
   const onFileChange = async (event?: React.ChangeEvent<HTMLInputElement>) => {
-    const acceptedFileType = acceptTypes.split(", ");
+    const acceptedFileType = acceptTypes.split(', ');
     if (event) {
       const fileChosen = event?.target?.files;
       if (fileChosen) {
@@ -44,7 +44,7 @@ const ImageInput: React.FC<ImageInputProps> = ({
           clearErrors(name);
           return setValue(name, data);
         } else {
-          setError(name, { message: "Invalid file." });
+          setError(name, { message: 'Invalid file.' });
         }
       }
     }
@@ -52,7 +52,7 @@ const ImageInput: React.FC<ImageInputProps> = ({
 
   const dropHandler = async (event: React.DragEvent<HTMLDivElement>) => {
     event.preventDefault();
-    const acceptedFileType = acceptTypes.split(", ");
+    const acceptedFileType = acceptTypes.split(', ');
     const filesUploaded = event.dataTransfer.items;
     const filesArray: File[] = [];
 
@@ -64,7 +64,7 @@ const ImageInput: React.FC<ImageInputProps> = ({
             filesArray.push(file);
           }
         } else {
-          setError(name, { message: "Invalid file." });
+          setError(name, { message: 'Invalid file.' });
         }
       }
     }
@@ -76,7 +76,7 @@ const ImageInput: React.FC<ImageInputProps> = ({
         <input
           type="file"
           {...register(name, { required })}
-          style={{ display: "none" }}
+          style={{ display: 'none' }}
           ref={hiddenFileInput}
           accept={acceptTypes}
           onChange={onFileChange}
