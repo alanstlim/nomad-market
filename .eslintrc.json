@@ -9,7 +9,7 @@
     "@typescript-eslint/no-unused-vars": "error",
     "@typescript-eslint/no-explicit-any": "error",
     "@tanstack/query/exhaustive-deps": "error",
-    "@tanstack/query/prefer-query-object-syntax": "error",
+    "@tanstack/query/prefer-query-object-syntax": "off",
     "prefer-const": "error",
     "react/no-unescaped-entities": 0
   }

@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -6,7 +6,7 @@ export const Container = styled.div`
 `;
 
 type ButtonProps = {
-  outline?: boolean;
+  outline?: 'true' | 'false';
 };
 
 export const Button = styled.button<ButtonProps>`
@@ -23,7 +23,7 @@ export const Button = styled.button<ButtonProps>`
   cursor: pointer;
 
   ${({ outline }) =>
-    outline &&
+    outline === 'true' &&
     css`
       background-color: ${({ theme }) => theme.colors.backgroundDark};
       border: solid 1px ${({ theme }) => theme.colors.secondary};

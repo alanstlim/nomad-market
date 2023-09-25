@@ -25,7 +25,7 @@ const ImageInput: React.FC<ImageInputProps> = ({
   const value = watch(name);
 
   const hasImage = useMemo(() => {
-    return value && value.length > 0;
+    return value && value?.length > 0;
   }, [value]);
 
   const handleClick = () => {
@@ -57,7 +57,7 @@ const ImageInput: React.FC<ImageInputProps> = ({
     const filesArray: File[] = [];
 
     if (event.dataTransfer.items) {
-      for (let i = 0; i < filesUploaded.length; i++) {
+      for (let i = 0; i < filesUploaded?.length; i++) {
         if (acceptedFileType.includes(filesUploaded[i].type)) {
           const file = filesUploaded[i].getAsFile();
           if (file) {

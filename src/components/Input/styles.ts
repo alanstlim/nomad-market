@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   display: flex;
@@ -33,8 +33,7 @@ export const Input = styled.input<InputProps>`
   padding: 0 0.5rem;
   border-radius: 8px;
 
-  ${({ error, theme }) =>
-    css`
-      border: solid 1.5px ${error ? theme.colors.error : theme.colors.secondary};
-    `}
+  ${({ error = false, theme }) => css`
+    border: solid 1.5px ${error ? theme.colors.error : theme.colors.secondary};
+  `}
 `;

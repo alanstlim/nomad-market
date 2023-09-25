@@ -1,5 +1,5 @@
-import * as St from "./styles";
-import { FieldError, useFormContext } from "react-hook-form";
+import * as St from './styles';
+import { FieldError, useFormContext } from 'react-hook-form';
 
 type InputProps = {
   name: string;
@@ -24,7 +24,7 @@ const Input: React.FC<InputProps> = ({
       <St.Input
         {...register(name, { required })}
         placeholder={placeholder}
-        error={typeof error?.message === "string"}
+        error={typeof error?.message === 'string' ?? false}
         {...rest}
       />
       {error?.message && <St.Error>{error.message}</St.Error>}

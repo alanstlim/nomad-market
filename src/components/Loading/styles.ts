@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export interface Props {
-  status?: boolean;
+  show?: 'false' | 'true';
 }
 
 export const Container = styled.div<Props>`
@@ -12,7 +12,7 @@ export const Container = styled.div<Props>`
   left: 0;
   position: fixed;
   z-index: 99999;
-  display: ${({ status }) => (status ? 'flex' : 'none')};
+  display: ${({ show }) => (show === 'true' ? 'flex' : 'none')};
   flex: 1;
   justify-content: center;
   align-items: center;
