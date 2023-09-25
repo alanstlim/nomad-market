@@ -5,19 +5,16 @@ import Button from "../../components/Button";
 import { Link } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { ValidationProduct } from "./validations";
-
-type FormData = {
-  name: string;
-  description: string;
-  price: string;
-};
+import useProductsStore, { ProductType } from "../../stores/products";
+import ImageInput from "../../components/ImageInput";
 
 const Product: React.FC = () => {
-  const methods = useForm<FormData>({
+  const addProduct = useProductsStore((state) => state.addProduct);
+  const methods = useForm<ProductType>({
     resolver: yupResolver(ValidationProduct),
   });
-  const onSubmit = async (data: FormData) => {
-    console.log(data);
+  const onSubmit = async (data: ProductType) => {
+    addProduct(data);
   };
 
   return (
@@ -25,17 +22,25 @@ const Product: React.FC = () => {
       <St.Title>Management - Register</St.Title>
       <FormProvider {...methods}>
         <form onSubmit={methods.handleSubmit(onSubmit)}>
+          <ImageInput
+            title="Product´s Image"
+            name="image"
+            error={methods.formState.errors.image}
+          />
           <St.FormContainer>
             <Input
               name="name"
               placeholder="Name: Strawberry"
               label="Name"
+              maxLength={125}
               error={methods.formState.errors.name}
             />
             <Input
               name="price"
               placeholder="Price: $0,00"
               label="Price"
+              type="number"
+              maxLength={8}
               error={methods.formState.errors.price}
             />
           </St.FormContainer>
@@ -43,6 +48,7 @@ const Product: React.FC = () => {
             name="description"
             placeholder="Description: The strawberry is good to ..."
             label="Description"
+            maxLength={255}
             error={methods.formState.errors.description}
           />
           <St.RowContainer>

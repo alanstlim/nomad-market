@@ -25,5 +25,6 @@ export const RowContainer = styled.div`
   display: flex;
   gap: 1rem;
   flex: 1;
+  margin-top: 1rem;
   justify-content: flex-end;
 `;
