@@ -1,7 +1,11 @@
 import { Link } from "react-router-dom";
 import THEMES from "../../styles/theme";
 import * as St from "./styles";
-import { MdViewModule, MdManageAccounts } from "react-icons/md";
+import {
+  MdViewModule,
+  MdManageAccounts,
+  MdShoppingBasket,
+} from "react-icons/md";
 
 const SideBar: React.FC = () => {
   return (
@@ -19,6 +23,14 @@ const SideBar: React.FC = () => {
               <St.ItemContainer>
                 <MdViewModule size={32} color={THEMES.colors.secondary} />
                 <St.ItemTitle>Catalogue</St.ItemTitle>
+              </St.ItemContainer>
+            </St.ItemButton>
+          </Link>
+          <Link to="/basket">
+            <St.ItemButton>
+              <St.ItemContainer>
+                <MdShoppingBasket size={32} color={THEMES.colors.secondary} />
+                <St.ItemTitle>Basket</St.ItemTitle>
               </St.ItemContainer>
             </St.ItemButton>
           </Link>

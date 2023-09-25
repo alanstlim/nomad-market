@@ -2,15 +2,14 @@ import styled from "styled-components";
 
 export const Content = styled.div`
   display: flex;
-  flex: 1;
-  width: 80vw;
   background-color: ${({ theme }) => theme.colors.backgroundDark};
+  margin-bottom: 2rem;
 `;
 
 export const InputContainer = styled.div`
   display: flex;
   gap: 1rem;
-  padding: 0 2rem;
+  padding: 0 1rem;
   align-items: center;
 `;
 export const Input = styled.input`

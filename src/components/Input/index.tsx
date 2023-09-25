@@ -8,14 +8,14 @@ type InputProps = {
   error?: FieldError;
 } & React.InputHTMLAttributes<HTMLInputElement>;
 
-function Input({
+const Input: React.FC<InputProps> = ({
   name,
   label,
   placeholder,
   error,
   required,
   ...rest
-}: InputProps) {
+}) => {
   const { register } = useFormContext();
 
   return (
@@ -30,6 +30,6 @@ function Input({
       {error?.message && <St.Error>{error.message}</St.Error>}
     </St.Container>
   );
-}
+};
 
 export default Input;

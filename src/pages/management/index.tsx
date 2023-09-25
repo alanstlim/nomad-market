@@ -8,7 +8,7 @@ const Management: React.FC = () => {
   return (
     <St.Content>
       <St.Title>Management</St.Title>
-      <Link to="product">
+      <Link to="/product">
         <Button title="Register a new product" type="button" />
       </Link>
       <St.Table>
@@ -33,7 +33,7 @@ const Management: React.FC = () => {
             <St.TD>6000</St.TD>
             <St.TD>Organic, best quality</St.TD>
             <St.TD>
-              <Link to="product">
+              <Link to="/product">
                 <MdModeEdit size={24} color={THEMES.colors.secondary} />
               </Link>
               <MdDelete size={24} color={THEMES.colors.error} />
@@ -50,7 +50,7 @@ const Management: React.FC = () => {
             <St.TD>5150</St.TD>
             <St.TD>Organic, best quality</St.TD>
             <St.TD>
-              <Link to="product">
+              <Link to="/product">
                 <MdModeEdit size={24} color={THEMES.colors.secondary} />
               </Link>
               <MdDelete size={24} color={THEMES.colors.error} />

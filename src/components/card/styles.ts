@@ -50,4 +50,5 @@ export const ButtonAdd = styled.button`
   align-items: center;
   background-color: purple;
   border: none;
+  cursor: pointer;
 `;
