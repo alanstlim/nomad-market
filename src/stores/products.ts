@@ -2,7 +2,7 @@ import { Maybe } from 'yup';
 import { create } from 'zustand';
 
 export type ProductType = {
-  id?: Maybe<string | undefined>;
+  _id?: Maybe<string | undefined>;
   name: string;
   description: string;
   price: number;
@@ -22,7 +22,7 @@ const useProductsStore = create<State>((set) => ({
   },
   removeProduct: (target) => {
     set((state) => ({
-      products: state.products.filter((product) => product.id !== target.id),
+      products: state.products.filter((product) => product._id !== target._id),
     }));
   },
 }));

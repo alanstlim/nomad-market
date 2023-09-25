@@ -15,6 +15,7 @@ const Router: React.FC = () => {
         <Route path="basket" element={<Basket />} />
         <Route path="management" element={<Management />} />
         <Route path="product" element={<Product />} />
+        <Route path="product/:id" element={<Product />} />
       </Route>
     </Routes>
   );
