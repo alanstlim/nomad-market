@@ -12,17 +12,28 @@ import { AxiosError } from 'axios';
 import { useSpinner } from 'context/SpinnerContext';
 import { useEffect, useMemo } from 'react';
 import useModalStore from 'stores/modal';
-import { handleCreateProduct, handleGetProductById } from 'useCase/products';
+import {
+  handleCreateProduct,
+  handleGetProductById,
+  handleUpdateProduct,
+} from 'useCase/products';
+
+export type FormProductData = {
+  name: string;
+  description: string;
+  price: number;
+  image: string;
+};
 
 const Product: React.FC = () => {
   const { setLoading } = useSpinner();
   const { openModal } = useModalStore();
   const { id } = useParams();
-  const methods = useForm<ProductType>({
+  const methods = useForm<FormProductData>({
     resolver: yupResolver(ValidationProduct),
   });
 
-  const { mutate, isLoading: loadingCreate } = useMutation(
+  const { mutate: mutateCreateProduct, isLoading: loadingCreate } = useMutation(
     handleCreateProduct,
     {
       onSuccess: () => {
@@ -38,6 +49,27 @@ const Product: React.FC = () => {
           title: 'Error',
           variant: 'error',
           message: `Error on register product, try again later. ${error.code}`,
+        });
+      },
+    }
+  );
+
+  const { mutate: mutateUpdateProduct, isLoading: loadingUpdate } = useMutation(
+    handleUpdateProduct,
+    {
+      onSuccess: () => {
+        methods.reset();
+        openModal({
+          title: 'Success',
+          variant: 'success',
+          message: 'Product updated with success',
+        });
+      },
+      onError: (error: AxiosError) => {
+        openModal({
+          title: 'Error',
+          variant: 'error',
+          message: `Error on updated product, try again later. ${error.code}`,
         });
       },
     }
@@ -61,15 +93,19 @@ const Product: React.FC = () => {
   });
 
   const isLoading = useMemo(() => {
-    return loadingCreate && loadingGet;
-  }, [loadingCreate, loadingGet]);
+    return loadingCreate || loadingGet || loadingUpdate;
+  }, [loadingCreate, loadingGet, loadingUpdate]);
 
   useEffect(() => {
     setLoading(isLoading);
   }, [isLoading]);
 
-  const onSubmit = async (data: ProductType) => {
-    mutate(data);
+  const onSubmit = async (data: FormProductData) => {
+    if (id) {
+      mutateUpdateProduct({ ...data, _id: id, quantity: 1 });
+    } else {
+      mutateCreateProduct(data);
+    }
   };
 
   return (
@@ -87,7 +123,7 @@ const Product: React.FC = () => {
               name="name"
               placeholder="Name: Strawberry"
               label="Name"
-              maxLength={125}
+              maxLength={55}
               error={methods.formState.errors.name}
             />
             <Input
@@ -95,7 +131,7 @@ const Product: React.FC = () => {
               placeholder="Price: $0,00"
               label="Price"
               type="number"
-              maxLength={8}
+              maxLength={6}
               error={methods.formState.errors.price}
             />
           </St.FormContainer>
@@ -103,14 +139,18 @@ const Product: React.FC = () => {
             name="description"
             placeholder="Description: The strawberry is good to ..."
             label="Description"
-            maxLength={255}
+            maxLength={125}
             error={methods.formState.errors.description}
           />
           <St.RowContainer>
             <Link to="/management">
               <Button title="Back" type="button" outline disabled={isLoading} />
             </Link>
-            <Button title="Register" type="submit" disabled={isLoading} />
+            <Button
+              title={id ? 'Update' : 'Register'}
+              type="submit"
+              disabled={isLoading}
+            />
           </St.RowContainer>
         </form>
       </FormProvider>

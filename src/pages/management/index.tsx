@@ -3,18 +3,49 @@ import Button from 'components/Button';
 import THEMES from 'styles/theme';
 import * as St from './styles';
 import { Link } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query';
-import { useEffect } from 'react';
+import { useMutation, useQuery } from '@tanstack/react-query';
+import { useEffect, useMemo } from 'react';
 import { useSpinner } from 'context/SpinnerContext';
-import { handleGetAllProducts } from 'useCase/products';
+import { handleDeleteProduct, handleGetAllProducts } from 'useCase/products';
+import useModalStore from 'stores/modal';
+import { AxiosError } from 'axios';
 
 const Management: React.FC = () => {
   const { setLoading } = useSpinner();
+  const { openModal } = useModalStore();
 
-  const { isLoading, data } = useQuery({
+  const { isLoading: loadingGetAll, data } = useQuery({
     queryKey: ['getAll'],
     queryFn: handleGetAllProducts,
   });
+
+  const handleDelete = async (id: string) => {
+    mutateDelete(id);
+  };
+
+  const { mutate: mutateDelete, isLoading: loadingDelete } = useMutation(
+    handleDeleteProduct,
+    {
+      onSuccess: () => {
+        openModal({
+          title: 'Success',
+          variant: 'success',
+          message: 'Product deleted with success',
+        });
+      },
+      onError: (error: AxiosError) => {
+        openModal({
+          title: 'Error',
+          variant: 'error',
+          message: `Error on delete product, try again later. ${error.code}`,
+        });
+      },
+    }
+  );
+
+  const isLoading = useMemo(() => {
+    return loadingDelete || loadingGetAll;
+  }, [loadingDelete, loadingGetAll]);
 
   useEffect(() => {
     setLoading(isLoading);
@@ -48,7 +79,11 @@ const Management: React.FC = () => {
                 <Link to={`/product/${product._id}`}>
                   <MdModeEdit size={24} color={THEMES.colors.secondary} />
                 </Link>
-                <MdDelete size={24} color={THEMES.colors.error} />
+                <MdDelete
+                  size={24}
+                  color={THEMES.colors.error}
+                  onClick={() => handleDelete(product._id)}
+                />
               </St.TD>
             </St.TR>
           ))}

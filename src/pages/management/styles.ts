@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Content = styled.div`
   display: flex;
@@ -35,9 +35,10 @@ export const TH = styled.th`
 
 export const TD = styled.td`
   padding: 12px 15px;
+  min-width: 80px;
 
   * {
-    margin-right: 1rem;
+    margin-right: 0.25rem;
   }
 
   svg {
