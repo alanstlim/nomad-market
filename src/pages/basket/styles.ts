@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const Content = styled.div`
   display: flex;
@@ -21,4 +21,19 @@ export const Catalog = styled.div`
   width: 100%;
   flex-wrap: wrap;
   gap: 1rem;
+`;
+
+export const BottomContainer = styled.div`
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 1.5rem;
+`;
+
+export const TotalValue = styled.span`
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 0.7rem;
+  color: ${({ theme }) => theme.colors.secondary};
 `;
