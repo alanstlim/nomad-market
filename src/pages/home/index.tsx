@@ -5,14 +5,17 @@ import * as St from './styles';
 import { handleGetAllProducts } from 'useCase/products';
 import { useQuery } from '@tanstack/react-query';
 import { useSpinner } from 'context/SpinnerContext';
-import { useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import useModalStore from 'stores/modal';
+import useSearchStore from 'stores/search';
 
 const Home: React.FC = () => {
+  const [productsList, setProdcutsList] = useState<ProductType[]>([]);
+
   const { setLoading } = useSpinner();
   const openModal = useModalStore((state) => state.openModal);
   const addProduct = useProductsStore((state) => state.addProduct);
-
+  const searchText = useSearchStore((state) => state.text);
   const { isLoading, data } = useQuery({
     queryKey: ['getAll'],
     queryFn: handleGetAllProducts,
@@ -28,6 +31,25 @@ const Home: React.FC = () => {
     });
   };
 
+  const searchFilterList = useCallback(
+    (text: string) => {
+      if (data) {
+        const filteredList: ProductType[] = data.filter((product) => {
+          const productName = product.name.toLowerCase();
+          const textData = text.toLowerCase();
+          return productName.includes(textData) && product;
+        });
+
+        setProdcutsList(filteredList);
+      }
+    },
+    [data]
+  );
+
+  useEffect(() => {
+    searchFilterList(searchText);
+  }, [searchText]);
+
   useEffect(() => {
     setLoading(isLoading);
   }, [isLoading]);
@@ -37,8 +59,8 @@ const Home: React.FC = () => {
       <SearchBar />
 
       <St.Catalog>
-        {data && data?.length > 0 ? (
-          data?.map((product) => (
+        {productsList?.length > 0 ? (
+          productsList?.map((product) => (
             <Card
               key={product._id}
               data={product}

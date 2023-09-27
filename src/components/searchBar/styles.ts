@@ -16,17 +16,14 @@ export const Content = styled.div`
 export const InputContainer = styled.div`
   display: flex;
   gap: 1rem;
-  padding: 0 1rem;
+  width: 100%;
+  padding-left: 1rem;
   align-items: center;
 `;
 export const Input = styled.input`
   height: 35px;
-  width: 25vw;
+  flex: 1;
   border: none;
   padding: 0 0.5rem;
   background-color: ${({ theme }) => theme.colors.backgroundDark};
-
-  @media (max-width: 1154px) {
-    width: 50vw;
-  }
 `;
