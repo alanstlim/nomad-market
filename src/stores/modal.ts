@@ -2,8 +2,9 @@ import { create } from 'zustand';
 
 export type ModalType = {
   title: string;
-  message: string;
+  message?: string;
   variant?: 'success' | 'error' | 'warning';
+  component?: JSX.Element;
   open?: boolean;
 };
 

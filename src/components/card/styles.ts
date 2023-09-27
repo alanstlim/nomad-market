@@ -88,8 +88,8 @@ export const Quantity = styled.span`
   text-overflow: ellipsis;
   background-color: ${({ theme }) => theme.colors.primary};
   padding: 0.5rem;
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   color: ${({ theme }) => theme.colors.backgroundLight};
 `;

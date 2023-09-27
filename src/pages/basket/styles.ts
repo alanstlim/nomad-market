@@ -28,12 +28,4 @@ export const BottomContainer = styled.div`
   flex: 1;
   justify-content: flex-end;
   align-items: flex-end;
-  gap: 1.5rem;
-`;
-
-export const TotalValue = styled.span`
-  font-size: 1em;
-  font-weight: bold;
-  margin-bottom: 0.7rem;
-  color: ${({ theme }) => theme.colors.secondary};
 `;

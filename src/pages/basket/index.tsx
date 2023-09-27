@@ -2,18 +2,19 @@ import Button from 'components/Button';
 import Card from 'components/Card';
 import useProductsStore from 'stores/products';
 import * as St from './styles';
-import { useMemo } from 'react';
+import StripeContainer from 'components/StripeContainer';
+import useModalStore from 'stores/modal';
 
 const Basket: React.FC = () => {
   const productsStore = useProductsStore((state) => state);
+  const openModal = useModalStore((state) => state.openModal);
 
-  const totalPrice = useMemo(() => {
-    const arrayTotal = productsStore.products.map(
-      (product) => product.price * product.quantity
-    );
-    return arrayTotal.reduce((previous, current) => previous + current, 0);
-  }, [productsStore]);
-
+  const handleModalPayment = () => {
+    openModal({
+      title: 'Payment',
+      component: <StripeContainer />,
+    });
+  };
   return (
     <St.Content>
       <St.Title>Basket</St.Title>
@@ -29,8 +30,12 @@ const Basket: React.FC = () => {
         ))}
       </St.Catalog>
       <St.BottomContainer>
-        <St.TotalValue>Total Value: ${totalPrice}</St.TotalValue>
-        <Button title="Checkout" type="button" />
+        <Button
+          title="Checkout"
+          type="button"
+          onClick={handleModalPayment}
+          disabled={productsStore.products.length < 1}
+        />
       </St.BottomContainer>
     </St.Content>
   );
