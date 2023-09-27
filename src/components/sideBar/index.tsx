@@ -6,42 +6,54 @@ import {
   MdManageAccounts,
   MdShoppingBasket,
 } from 'react-icons/md';
+import useMediaQuery from 'utils/mediaQuery';
+import logo from 'assets/logo.png';
+import logoMobile from 'assets/logoMobile.png';
+import { ROUTES } from 'routes/routes';
+import { useCallback, useState } from 'react';
 
 const SideBar: React.FC = () => {
+  const isMobile = useMediaQuery('(max-width: 1154px)');
+  const [currentPath, setCurrentPath] = useState('/');
+
+  const handlePath = (path: string) => {
+    setCurrentPath(path);
+  };
+
+  const Icon = useCallback((iconName?: string) => {
+    switch (iconName) {
+      case 'MdViewModule':
+        return <MdViewModule size={32} color={THEMES.colors.secondary} />;
+      case 'MdManageAccounts':
+        return <MdManageAccounts size={32} color={THEMES.colors.secondary} />;
+      case 'MdShoppingBasket':
+        return <MdShoppingBasket size={32} color={THEMES.colors.secondary} />;
+      default:
+        return null;
+    }
+  }, []);
+
   return (
     <St.Content>
       <St.Header>
-        <St.Logo
-          src="https://getlogovector.com/wp-content/uploads/2020/11/nomad-homes-logo-vector.png"
-          alt="Logo Nomad"
-        />
+        <St.Logo src={isMobile ? logoMobile : logo} alt="Logo Nomad" />
       </St.Header>
       <St.Menu>
         <div>
-          <Link to="/">
-            <St.ItemButton>
-              <St.ItemContainer>
-                <MdViewModule size={32} color={THEMES.colors.secondary} />
-                <St.ItemTitle>Catalogue</St.ItemTitle>
-              </St.ItemContainer>
-            </St.ItemButton>
-          </Link>
-          <Link to="/basket">
-            <St.ItemButton>
-              <St.ItemContainer>
-                <MdShoppingBasket size={32} color={THEMES.colors.secondary} />
-                <St.ItemTitle>Basket</St.ItemTitle>
-              </St.ItemContainer>
-            </St.ItemButton>
-          </Link>
-          <Link to="/management">
-            <St.ItemButton>
-              <St.ItemContainer>
-                <MdManageAccounts size={32} color={THEMES.colors.secondary} />
-                <St.ItemTitle>Management</St.ItemTitle>
-              </St.ItemContainer>
-            </St.ItemButton>
-          </Link>
+          {ROUTES.filter((route) => route.sidebar).map((route, index) => (
+            <Link
+              to={route.path}
+              key={route.title + index}
+              onClick={() => handlePath(route.path)}
+            >
+              <St.ItemButton>
+                <St.ItemContainer active={route.path === currentPath}>
+                  {Icon(route.icon)}
+                  {!isMobile && <St.ItemTitle>{route.title}</St.ItemTitle>}
+                </St.ItemContainer>
+              </St.ItemButton>
+            </Link>
+          ))}
         </div>
       </St.Menu>
     </St.Content>

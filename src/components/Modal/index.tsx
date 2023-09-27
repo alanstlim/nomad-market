@@ -24,8 +24,15 @@ const Modal: React.FC = () => {
         <St.Background>
           <St.Container>
             <St.Title>{data.title}</St.Title>
-            {IconVariant()}
-            <St.Description>{data?.message}</St.Description>
+
+            {data.component ? (
+              <>{data.component}</>
+            ) : (
+              <>
+                {IconVariant()}
+                <St.Description>{data?.message}</St.Description>
+              </>
+            )}
             <Button title="Close" type="button" onClick={closeModal} />
           </St.Container>
         </St.Background>

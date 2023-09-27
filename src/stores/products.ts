@@ -12,7 +12,8 @@ export type ProductType = {
 type State = {
   products: ProductType[];
   addProduct: (product: ProductType) => void;
-  removeProduct: (id: string) => void;
+  minusProduct: (id: string) => void;
+  clearProducts: () => void;
 };
 
 const useProductsStore = create<State>((set) => ({
@@ -35,7 +36,7 @@ const useProductsStore = create<State>((set) => ({
       return {};
     });
   },
-  removeProduct: (id) => {
+  minusProduct: (id) => {
     set((state) => {
       const indexBasket = state.products
         .map((item) => {
@@ -51,6 +52,9 @@ const useProductsStore = create<State>((set) => ({
         return { products: [...state.products] };
       }
     });
+  },
+  clearProducts: () => {
+    set(() => ({ products: [] }));
   },
 }));
 

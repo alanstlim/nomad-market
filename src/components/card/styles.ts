@@ -12,6 +12,10 @@ export const Content = styled.div`
   background-color: ${({ theme }) => theme.colors.backgroundLight};
   cursor: pointer;
   box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
+
+  @media (max-width: 450px) {
+    width: 100%;
+  }
 `;
 
 export const Image = styled.img`

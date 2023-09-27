@@ -37,12 +37,17 @@ const Home: React.FC = () => {
       <SearchBar />
 
       <St.Catalog>
-        {data?.map((product) => (
-          <Card
-            data={product}
-            onPlusClickButton={() => handleAddProduct(product)}
-          />
-        ))}
+        {data && data?.length > 0 ? (
+          data?.map((product) => (
+            <Card
+              key={product._id}
+              data={product}
+              onPlusClickButton={() => handleAddProduct(product)}
+            />
+          ))
+        ) : (
+          <St.Description>Anyone product registered...</St.Description>
+        )}
       </St.Catalog>
     </St.Content>
   );

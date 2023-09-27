@@ -29,3 +29,15 @@ export const BottomContainer = styled.div`
   justify-content: flex-end;
   align-items: flex-end;
 `;
+
+export const Description = styled.span`
+  font-size: 1rem;
+  width: 95%;
+  margin-top: 1rem;
+  text-align: center;
+  font-weight: bold;
+  overflow: auto;
+  word-wrap: break-word;
+  text-overflow: ellipsis;
+  color: ${({ theme }) => theme.colors.secondary};
+`;

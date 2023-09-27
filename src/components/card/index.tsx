@@ -22,7 +22,6 @@ const Card: React.FC<CardProps> = ({
     <St.Content onClick={onClick}>
       {data.quantity > 0 && (
         <St.QuantityContent>
-          <span>Qt:</span>
           <St.Quantity>{data.quantity}</St.Quantity>
         </St.QuantityContent>
       )}

@@ -1,9 +1,14 @@
-import styled from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const Content = styled.div`
   display: flex;
   flex-direction: column;
+  width: 250px;
   gap: 0.125rem;
+
+  @media (max-width: 1154px) {
+    width: 80px;
+  }
 `;
 
 export const Header = styled.div`
@@ -17,20 +22,32 @@ export const Header = styled.div`
 export const Logo = styled.img`
   height: 75px;
   mix-blend-mode: multiply;
+
+  @media (max-width: 1154px) {
+    height: 45px;
+  }
 `;
 
 export const Menu = styled.div`
   display: flex;
   flex: 9;
-  width: 15vw;
+  width: 100%;
   flex-direction: column;
   gap: 0.25rem;
   background-color: ${({ theme }) => theme.colors.backgroundLight};
+
+  @media (max-width: 1154px) {
+    width: 80px;
+  }
 
   :first-child {
     margin-top: 0.5rem;
   }
 `;
+
+type ButtonProps = {
+  active?: boolean;
+};
 
 export const ItemButton = styled.button`
   display: flex;
@@ -42,14 +59,19 @@ export const ItemButton = styled.button`
 
   :first-child {
     margin-left: 0.75rem;
+
+    @media (max-width: 1154px) {
+      margin-left: 0;
+      justify-content: center;
+    }
   }
 
   :hover {
-    background-color: ${({ theme }) => theme.colors.primary};
+    background-color: ${({ theme }) => theme.colors.backgroundDark};
   }
 `;
 
-export const ItemContainer = styled.div`
+export const ItemContainer = styled.div<ButtonProps>`
   display: flex;
   align-items: center;
   border-radius: 0.75rem;
@@ -58,6 +80,12 @@ export const ItemContainer = styled.div`
   svg {
     margin-bottom: 0.75rem;
   }
+
+  ${({ active = false, theme }) => css`
+    background-color: ${active
+      ? theme.colors.primary
+      : theme.colors.backgroundLight};
+  `}
 `;
 
 export const ItemTitle = styled.span`

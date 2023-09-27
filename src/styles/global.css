@@ -3,6 +3,10 @@
     padding: 32px;
     font-family: 'Raleway', sans-serif;
     background-color: #AEC741;
+
+    @media (max-width: 1154px) {
+      padding: 0
+    }
   };
 
   html {
