@@ -32,11 +32,11 @@ const Card: React.FC<CardProps> = ({
       <St.BottomContainer>
         <St.Price>${data.price * (data.quantity ?? 1)}</St.Price>
         {variant === 'negative' && (
-          <St.Button onClick={onMinuslickButton}>
+          <St.Button data-testid="minus" onClick={onMinuslickButton}>
             <MdRemove size={18} color="white" />
           </St.Button>
         )}
-        <St.Button onClick={onPlusClickButton}>
+        <St.Button data-testid="plus" onClick={onPlusClickButton}>
           <MdOutlineAdd size={18} color="white" />
         </St.Button>
       </St.BottomContainer>

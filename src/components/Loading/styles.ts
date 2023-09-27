@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
-export interface Props {
-  show?: 'false' | 'true';
-}
-
-export const Container = styled.div<Props>`
+export const Container = styled.div`
   height: 100%;
   width: 100%;
   background-color: rgba(255, 255, 255, 0.4);
@@ -12,7 +8,7 @@ export const Container = styled.div<Props>`
   left: 0;
   position: fixed;
   z-index: 99999;
-  display: ${({ show }) => (show === 'true' ? 'flex' : 'none')};
+  display: flex;
   flex: 1;
   justify-content: center;
   align-items: center;

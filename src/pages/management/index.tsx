@@ -44,7 +44,7 @@ const Management: React.FC = () => {
   );
 
   const isLoading = useMemo(() => {
-    return loadingDelete || loadingGetAll;
+    return loadingDelete || loadingGetAll ? 'true' : 'false';
   }, [loadingDelete, loadingGetAll]);
 
   useEffect(() => {

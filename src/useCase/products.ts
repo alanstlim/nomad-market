@@ -2,7 +2,7 @@ import axios from 'axios';
 import { FormProductData } from 'pages/product';
 import { ProductType } from 'stores/products';
 
-const API_KEY = '927ecb58b6f549719457350726cf2d84';
+const API_KEY = '24f91df7dcb54daa9a81ba255065ff65';
 
 export const handleCreateProduct = async (data: FormProductData) => {
   const { data: response } = await axios.post(

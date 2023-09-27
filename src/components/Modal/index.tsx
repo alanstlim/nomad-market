@@ -21,7 +21,7 @@ const Modal: React.FC = () => {
   return (
     <>
       {data?.open && (
-        <St.Background>
+        <St.Background data-testid="modal">
           <St.Container>
             <St.Title>{data.title}</St.Title>
 

@@ -33,7 +33,7 @@ const Home: React.FC = () => {
 
   const searchFilterList = useCallback(
     (text: string) => {
-      if (data) {
+      if (data && searchText) {
         const filteredList: ProductType[] = data.filter((product) => {
           const productName = product.name.toLowerCase();
           const textData = text.toLowerCase();
@@ -41,17 +41,19 @@ const Home: React.FC = () => {
         });
 
         setProdcutsList(filteredList);
+      } else {
+        setProdcutsList(data ?? []);
       }
     },
-    [data]
+    [data, searchText]
   );
 
   useEffect(() => {
     searchFilterList(searchText);
-  }, [searchText]);
+  }, [searchText, data]);
 
   useEffect(() => {
-    setLoading(isLoading);
+    setLoading(isLoading ? 'true' : 'false');
   }, [isLoading]);
   return (
     <St.Content>

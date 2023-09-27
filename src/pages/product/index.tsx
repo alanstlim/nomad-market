@@ -97,7 +97,7 @@ const Product: React.FC = () => {
   }, [loadingCreate, loadingGet, loadingUpdate]);
 
   useEffect(() => {
-    setLoading(isLoading);
+    setLoading(isLoading ? 'true' : 'false');
   }, [isLoading]);
 
   const onSubmit = async (data: FormProductData) => {

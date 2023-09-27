@@ -34,7 +34,7 @@ const SideBar: React.FC = () => {
   }, []);
 
   return (
-    <St.Content>
+    <St.Content data-testid="sidebar">
       <St.Header>
         <St.Logo src={isMobile ? logoMobile : logo} alt="Logo Nomad" />
       </St.Header>
@@ -45,9 +45,12 @@ const SideBar: React.FC = () => {
               to={route.path}
               key={route.title + index}
               onClick={() => handlePath(route.path)}
+              style={{ textDecoration: 'none' }}
             >
               <St.ItemButton>
-                <St.ItemContainer active={route.path === currentPath}>
+                <St.ItemContainer
+                  active={route.path === currentPath ? 'true' : 'false'}
+                >
                   {Icon(route.icon)}
                   {!isMobile && <St.ItemTitle>{route.title}</St.ItemTitle>}
                 </St.ItemContainer>

@@ -41,6 +41,11 @@ const ImageInput: React.FC<ImageInputProps> = ({
       if (fileChosen) {
         const data = await convertBase64(fileChosen[0]);
         if (acceptedFileType.includes(fileChosen[0].type)) {
+          if (fileChosen[0].size > 750000) {
+            console.log(fileChosen);
+            setError(name, { message: 'Invalid must by less than 750kbps.' });
+            return;
+          }
           clearErrors(name);
           return setValue(name, data);
         } else {

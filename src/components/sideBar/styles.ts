@@ -46,7 +46,7 @@ export const Menu = styled.div`
 `;
 
 type ButtonProps = {
-  active?: boolean;
+  active?: string;
 };
 
 export const ItemButton = styled.button`
@@ -81,8 +81,8 @@ export const ItemContainer = styled.div<ButtonProps>`
     margin-bottom: 0.75rem;
   }
 
-  ${({ active = false, theme }) => css`
-    background-color: ${active
+  ${({ active = 'false', theme }) => css`
+    background-color: ${active === 'true'
       ? theme.colors.primary
       : theme.colors.backgroundLight};
   `}

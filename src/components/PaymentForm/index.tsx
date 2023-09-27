@@ -39,14 +39,16 @@ export default function PaymentForm() {
   return (
     <>
       {!success ? (
-        <form onSubmit={handleSubmit}>
+        <form data-testid="form" onSubmit={handleSubmit}>
           <fieldset className="FormGroup">
             <St.PaymentContainer className="FormRow">
-              <CardElement />
+              <CardElement data-testid="cardElement" />
             </St.PaymentContainer>
           </fieldset>
           <St.BottomContainer>
-            <St.TotalValue>Total Value: ${totalPrice}</St.TotalValue>
+            <St.TotalValue data-testid="value">
+              Total Value: ${totalPrice}
+            </St.TotalValue>
             <Button title="Pay" type="submit" outline />
           </St.BottomContainer>
         </form>
