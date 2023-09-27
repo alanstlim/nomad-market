@@ -1,46 +1,48 @@
-# Getting Started with Create React App
+# Nomad Market
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
 
-In the project directory, you can run:
+## About it
+* Web Application created based in MaisTodos FrontEnd Challenge.
 
-### `npm start`
+>"An Application to CRUD products and checkout."
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Features
+- [x] Catalogue with all products registered.
+  
+- [x] Basket.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- [x] Management to CRUD. 
 
-### `npm test`
+- [x] Checkout (FrontEnd) with Stripe.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Install
 
-### `npm run build`
+Clone this project, open in VSCode.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Use command: yarn (for install dependêncies)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Use command: yarn start (to start the project)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Use command: yarn test (to run test)
 
-### `npm run eject`
+## Depedencies
+[Styled-Components] (https://github.com/styled-components/styled-components) - Styles of all components.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+[Zustand] (https://github.com/pmndrs/zustand) - Manager global store/states.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+[Context] (https://pt-br.reactjs.org/docs/context.html) - Manager global store/states.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+[Hooks] (https://pt-br.reactjs.org/docs/hooks-intro.html) - Local States.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+[React Icons] (https://react-icons.github.io/react-icons/) - Icons used in all project.
 
-## Learn More
+[Axios] (https://github.com/axios/axios) - Manager to do request.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[useQuery] (https://tanstack.com/query/v4/docs/react/reference/useQuery) - Control queries and cached request.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+[TypeScript] (https://www.typescriptlang.org/) - Types of Javascript.
+
+[Jest] (https://jestjs.io/) - All tests of project.
+
+
