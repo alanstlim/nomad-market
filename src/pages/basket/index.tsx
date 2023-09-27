@@ -5,7 +5,7 @@ import * as St from './styles';
 import StripeContainer from 'components/StripeContainer';
 import useModalStore from 'stores/modal';
 
-function Basket() {
+const Basket: React.FC = () => {
   const productsStore = useProductsStore((state) => state);
   const openModal = useModalStore((state) => state.openModal);
 
@@ -43,6 +43,6 @@ function Basket() {
       </St.BottomContainer>
     </St.Content>
   );
-}
+};
 
 export default Basket;

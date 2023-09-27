@@ -8,8 +8,6 @@ import Basket from 'pages/basket';
 const Router: React.FC = () => {
   return (
     <Routes>
-      {/* A "layout route" is a good place to put markup you want to
-          share across all the pages on your site, like navigation. */}
       <Route path="/" element={<Template />}>
         <Route index element={<Home />} />
         <Route path="basket" element={<Basket />} />

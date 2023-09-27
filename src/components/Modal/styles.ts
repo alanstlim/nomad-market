@@ -26,6 +26,10 @@ export const Container = styled.div`
   border: 2px outset ${({ theme }) => theme.colors.secondary};
   border-radius: 0.75rem;
   padding: 1rem;
+
+  @media (max-width: 550px) {
+    width: 75%;
+  }
 `;
 
 export const Title = styled.span`

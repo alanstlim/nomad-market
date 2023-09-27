@@ -41,9 +41,9 @@ export default function PaymentForm() {
       {!success ? (
         <form onSubmit={handleSubmit}>
           <fieldset className="FormGroup">
-            <div className="FormRow" style={{ width: 450 }}>
+            <St.PaymentContainer className="FormRow">
               <CardElement />
-            </div>
+            </St.PaymentContainer>
           </fieldset>
           <St.BottomContainer>
             <St.TotalValue>Total Value: ${totalPrice}</St.TotalValue>
