@@ -1,6 +1,6 @@
 # Nomad Market
-
-
+<img src="https://raw.githubusercontent.com/alanstlim/nomad-market/main/ss/management.png" alt="drawing" width="500"/>
+<img src="https://raw.githubusercontent.com/alanstlim/nomad-market/main/ss/mobileVersion.png" alt="drawing" width="250"/>
 
 ## About it
 * Web Application created based in MaisTodos FrontEnd Challenge.
