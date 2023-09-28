@@ -1,6 +1,9 @@
 # Nomad Market
-
-
+<div >
+<img src="https://raw.githubusercontent.com/alanstlim/nomad-market/main/ss/mobileVersion.png" alt="drawing" width="250"/>
+  
+<img src="https://raw.githubusercontent.com/alanstlim/nomad-market/main/ss/management.png" alt="drawing" width="500"/>
+</div>
 
 ## About it
 * Web Application created based in MaisTodos FrontEnd Challenge.
@@ -29,7 +32,7 @@ Use command: yarn test (to run test)
 ## Depedencies
 [Styled-Components] (https://github.com/styled-components/styled-components) - Styles of all components.
 
-[Zustand] (https://github.com/pmndrs/zustand) - Manager global store/states.
+[Zustand] (https://github.com/pmndrs/zustand) - Manager global store/states - First time using this lib, I loved.
 
 [Context] (https://pt-br.reactjs.org/docs/context.html) - Manager global store/states.
 
@@ -43,6 +46,6 @@ Use command: yarn test (to run test)
 
 [TypeScript] (https://www.typescriptlang.org/) - Types of Javascript.
 
-[Jest] (https://jestjs.io/) - All tests of project.
+[Jest] (https://jestjs.io/) - All tests of project - I had some problems to test with Zustand, because the short time to learn.
 
 
