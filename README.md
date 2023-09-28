@@ -10,6 +10,8 @@
 
 >"An Application to CRUD products and checkout."
 
+* Was used a Free API, https://crudcrud.com/, There You can make a CRUD of any type or endpoint, but have a limit of request, you can access the website Crudcrud, get a new key, change the API_KEY in "src/usecase/products" to renew the API_KEY.
+
 ## Features
 - [x] Catalogue with all products registered.
   
