@@ -36,7 +36,7 @@ Use command: yarn test (to run test)
 
 [Zustand] (https://github.com/pmndrs/zustand) - Manager global store/states - First time using this lib, I loved.
 
-[Context] (https://pt-br.reactjs.org/docs/context.html) - Manager global store/states.
+[Context] (https://pt-br.reactjs.org/docs/context.html) - Another manager global store/states - Pros, don´t need a external lib to do.
 
 [Hooks] (https://pt-br.reactjs.org/docs/hooks-intro.html) - Local States.
 
