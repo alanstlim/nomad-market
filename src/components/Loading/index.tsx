@@ -1,13 +1,11 @@
+import useLoadingStore from 'stores/loading';
 import * as St from './styles';
 
-interface LoadingProps {
-  show?: boolean;
-}
-
-const Loading: React.FC<LoadingProps> = ({ show = false }) => {
+const Loading: React.FC = () => {
+  const showLoading = useLoadingStore((state) => state.showLoading);
   return (
     <>
-      {show && (
+      {showLoading && (
         <St.Container data-testid="loading">
           <St.Spinner />
         </St.Container>
