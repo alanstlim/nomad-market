@@ -53,7 +53,7 @@ const Management: React.FC = () => {
   return (
     <St.Content>
       <St.Title>Management</St.Title>
-      <Link to="/product">
+      <Link to="/product" style={{ textDecoration: 'none' }}>
         <Button title="Register a new product" type="button" />
       </Link>
       <St.Table>
