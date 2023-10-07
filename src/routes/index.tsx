@@ -2,7 +2,7 @@ import { Routes, Route } from 'react-router-dom';
 import Home from 'pages/home';
 import Template from 'template';
 import Product from 'pages/product';
-import Management from 'pages/management';
+import Management from 'pages/management/Management';
 import Basket from 'pages/basket';
 
 const Router: React.FC = () => {

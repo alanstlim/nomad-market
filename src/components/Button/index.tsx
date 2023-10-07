@@ -16,12 +16,7 @@ function Button({
 }: ButtonProps) {
   return (
     <St.Container>
-      <St.Button
-        type={type}
-        onClick={onClick}
-        {...rest}
-        outline={outline ? 'true' : 'false'}
-      >
+      <St.Button type={type} onClick={onClick} {...rest} outline={outline}>
         <St.Tittle>{title}</St.Tittle>
       </St.Button>
     </St.Container>

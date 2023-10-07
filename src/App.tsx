@@ -1,4 +1,4 @@
-import Contexts from 'context';
+import Loading from 'components/Loading';
 import Router from './routes';
 import './styles/global.css';
 import THEMES from './styles/theme';
@@ -8,9 +8,8 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={THEMES}>
-        <Contexts>
-          <Router />
-        </Contexts>
+        <Router />
+        <Loading />
       </ThemeProvider>
     </div>
   );

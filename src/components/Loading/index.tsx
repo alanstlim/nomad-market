@@ -1,13 +1,13 @@
 import * as St from './styles';
 
 interface LoadingProps {
-  show?: 'true' | 'false';
+  show?: boolean;
 }
 
-const Loading: React.FC<LoadingProps> = ({ show = 'false' }) => {
+const Loading: React.FC<LoadingProps> = ({ show = false }) => {
   return (
     <>
-      {show === 'true' && (
+      {show && (
         <St.Container data-testid="loading">
           <St.Spinner />
         </St.Container>

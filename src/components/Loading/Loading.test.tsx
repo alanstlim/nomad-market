@@ -6,7 +6,7 @@ describe('Loading Component', () => {
   it('should render the spinner', () => {
     render(
       <ThemeProvider theme={THEMES}>
-        <Loading show={'true'} />
+        <Loading show />
       </ThemeProvider>
     );
     screen.getByTestId('loading');
@@ -15,7 +15,7 @@ describe('Loading Component', () => {
   it('should not render the spinner', () => {
     render(
       <ThemeProvider theme={THEMES}>
-        <Loading show={'false'} />
+        <Loading show={false} />
       </ThemeProvider>
     );
     const loading = screen.queryByTestId('loading');

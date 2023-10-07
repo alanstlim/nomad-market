@@ -1,7 +1,7 @@
 import { FormProvider, useForm } from 'react-hook-form';
 import * as St from './styles';
-import Input from '../../components/Input';
-import Button from '../../components/Button';
+import Input from 'components/Input';
+import Button from 'components/Button';
 import { Link, useParams } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { ValidationProduct } from './validations';
@@ -9,7 +9,6 @@ import { ProductType } from 'stores/products';
 import ImageInput from 'components/ImageInput';
 import { useMutation, useQuery } from '@tanstack/react-query';
 import { AxiosError } from 'axios';
-import { useSpinner } from 'context/SpinnerContext';
 import { useEffect, useMemo } from 'react';
 import useModalStore from 'stores/modal';
 import {
@@ -17,6 +16,7 @@ import {
   handleGetProductById,
   handleUpdateProduct,
 } from 'useCase/products';
+import useLoadingStore from 'stores/loading';
 
 export type FormProductData = {
   name: string;
@@ -26,7 +26,7 @@ export type FormProductData = {
 };
 
 const Product: React.FC = () => {
-  const { setLoading } = useSpinner();
+  const setLoading = useLoadingStore((state) => state.setLoading);
   const { openModal } = useModalStore();
   const { id } = useParams();
   const methods = useForm<FormProductData>({
@@ -97,7 +97,7 @@ const Product: React.FC = () => {
   }, [loadingCreate, loadingGet, loadingUpdate]);
 
   useEffect(() => {
-    setLoading(isLoading ? 'true' : 'false');
+    setLoading(isLoading);
   }, [isLoading]);
 
   const onSubmit = async (data: FormProductData) => {

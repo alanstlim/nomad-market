@@ -6,7 +6,7 @@ import {
   MdManageAccounts,
   MdShoppingBasket,
 } from 'react-icons/md';
-import useMediaQuery from 'utils/mediaQuery';
+import useMediaQuery from 'hooks/mediaQuery';
 import logo from 'assets/logo.png';
 import logoMobile from 'assets/logoMobile.png';
 import { ROUTES } from 'routes/routes';
@@ -48,9 +48,7 @@ const SideBar: React.FC = () => {
               style={{ textDecoration: 'none' }}
             >
               <St.ItemButton>
-                <St.ItemContainer
-                  active={route.path === currentPath ? 'true' : 'false'}
-                >
+                <St.ItemContainer active={route.path === currentPath}>
                   {Icon(route.icon)}
                   {!isMobile && <St.ItemTitle>{route.title}</St.ItemTitle>}
                 </St.ItemContainer>

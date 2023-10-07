@@ -1,6 +1,6 @@
 import Basket from 'pages/basket';
 import Home from 'pages/home';
-import Management from 'pages/management';
+import Management from 'pages/management/Management';
 import Product from 'pages/product';
 
 export const ROUTES = [

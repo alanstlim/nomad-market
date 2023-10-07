@@ -4,15 +4,15 @@ import useProductsStore, { ProductType } from 'stores/products';
 import * as St from './styles';
 import { handleGetAllProducts } from 'useCase/products';
 import { useQuery } from '@tanstack/react-query';
-import { useSpinner } from 'context/SpinnerContext';
 import { useCallback, useEffect, useState } from 'react';
 import useModalStore from 'stores/modal';
 import useSearchStore from 'stores/search';
+import useLoadingStore from 'stores/loading';
 
 const Home: React.FC = () => {
   const [productsList, setProdcutsList] = useState<ProductType[]>([]);
 
-  const { setLoading } = useSpinner();
+  const setLoading = useLoadingStore((state) => state.setLoading);
   const openModal = useModalStore((state) => state.openModal);
   const addProduct = useProductsStore((state) => state.addProduct);
   const searchText = useSearchStore((state) => state.text);
@@ -53,7 +53,7 @@ const Home: React.FC = () => {
   }, [searchText, data]);
 
   useEffect(() => {
-    setLoading(isLoading ? 'true' : 'false');
+    setLoading(isLoading);
   }, [isLoading]);
   return (
     <St.Content>
