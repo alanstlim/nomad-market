@@ -10,6 +10,8 @@
 
 >"An Application to CRUD products and checkout."
 
+* Was used a Free API, https://crudcrud.com/, There You can make a CRUD of any type or endpoint, but have a limit of request, you can access the website Crudcrud, get a new key, change the API_KEY in "src/usecase/products" to renew the API_KEY.
+
 ## Features
 - [x] Catalogue with all products registered.
   
@@ -34,7 +36,7 @@ Use command: yarn test (to run test)
 
 [Zustand] (https://github.com/pmndrs/zustand) - Manager global store/states - First time using this lib, I loved.
 
-[Context] (https://pt-br.reactjs.org/docs/context.html) - Manager global store/states.
+[Context] (https://pt-br.reactjs.org/docs/context.html) - Another manager global store/states - Pros, don´t need a external lib to do.
 
 [Hooks] (https://pt-br.reactjs.org/docs/hooks-intro.html) - Local States.
 
